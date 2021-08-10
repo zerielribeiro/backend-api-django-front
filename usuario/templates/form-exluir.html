@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Cadastro de Usuarios {% endblock %}
+
+{% block content %}
+<div class="container">
+<h2 class="text-center">Excluir de Usuarios</h2>
+<hr>
+<form action="" method="POST" class="text-center">
+    <p>
+      Deseja Excluir o registro: {{ object }}?
+    </p>
+    {% csrf_token %}
+    {{form.as_p}}
+
+    <button type="submit" class="btn btn-danger btn-sm" id="btn-cadastrar" >excluir
+      <i class="fa fa-trash" aria-hidden="true"></i>
+    </button>
+    <a href="{% url 'list-usuario' %}" class="btn btn-primary btn-sm" id="btn-cadastrar" title="voltar">Voltar</a>
+    
+     
+       
+</form>
+
+</div>
+ 
+  
+
+  {% endblock %}

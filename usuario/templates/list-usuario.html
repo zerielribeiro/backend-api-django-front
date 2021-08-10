@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %} Lista de Usuarios {% endblock %}
+
+{% block content %}
+<div class="container">
+  <a href="{% url 'create' %}" class="btn btn-primary btn-sm" id= 'btn-cadastrar'title="Cadastrar">Cadastrar Usuarios</a>
+    <h2 class="page-header text-center mb-2">Lista de Clientes</h2>
+  <table class="table table-striped">
+    <thead> 
+      
+      <tr>
+        <th>Email</th>
+        <th>Cpf</th>
+        <th>Situação</th>
+        <th>Acões</th>
+             
+      </tr>
+    </thead>
+    <tbody>
+        {% for usuario in usuarios %}
+        <tr>
+            <td>{{ usuario.email }} </td>
+            <td>{{ usuario.cpf }}</td>
+            <td>{{ usuario.situacao}}</td>
+            <td class="text-center">
+              <a href="{% url 'delete' usuario.pk %}" class="btn btn-primary btn-sm" id="delete" title="Apagar">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+                
+              </a>
+              <a href="{% url 'update' usuario.pk %}" class="btn btn-primary btn-sm" id="edite"title="Editar">
+                <i class="fa fa-pencil" aria-hidden="true"></i>
+              </a>
+              
+            </td>
+        </tr>
+        {% endfor%}
+    </tbody>
+  </table>
+</div>
+  {% endblock %}
+
+
+
+
+

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags%}
+{% block title %} Cadastro de Usuarios {% endblock %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">
+    <h2 class="text-center">{{titulo}}</h2>
+  </div>
+  <div class="card-body">
+    <form action="" method="POST" >
+      {% csrf_token %}
+      {{ form|crispy }}
+    </br>
+      
+      <button type="submit" class="btn btn-primary btn-sm" id="btn-cadastrar">{{botao}}</button>
+      <a href="{% url 'list-usuario' %}" class="btn btn-primary btn-sm" id="btn-voltar" title="voltar">Voltar</a>
+        
+  </form>
+  </div>
+</div>
+{% endblock %}
